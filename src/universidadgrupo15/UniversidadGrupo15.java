@@ -11,8 +11,8 @@ public class UniversidadGrupo15 {
         
      Alumno juan=new Alumno(12323,"Luna","Pedro",LocalDate.of(2012,4,23),true);
      AlumnoData alum=new AlumnoData();
-     alum.guardarAlumno(juan);
-     
+//     alum.guardarAlumno(juan);
+     alum.eliminarAlumno(1);
     }
     
 }
