@@ -9,10 +9,14 @@ public class UniversidadGrupo15 {
 
     public static void main(String[] args) {
         
-     Alumno juan=new Alumno(12323,"Luna","Pedro",LocalDate.of(2012,4,23),true);
+//     Alumno juan=new Alumno(12323,"Luna","Pedro",LocalDate.of(2012,4,23),true);
      AlumnoData alum=new AlumnoData();
 //     alum.guardarAlumno(juan);
-     alum.eliminarAlumno(1);
+//     alum.eliminarAlumno(2);
+//alum.modificarAlumno(juan);
+//alum.guardarAlumno(juan);
+     Alumno alumnoEncontrado=alum.buscarAlumnoPorDNI(44445);
+        System.out.println("nombre: "+alumnoEncontrado);
     }
     
 }

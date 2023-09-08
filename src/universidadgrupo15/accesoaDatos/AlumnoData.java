@@ -82,4 +82,56 @@ public class AlumnoData {
        }
    
    }
+   
+   public Alumno buscarAlumno(int id){
+   String sql="SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno=? AND estado=1";
+   Alumno alumno=null;    
+   try {
+           PreparedStatement ps=con.prepareStatement(sql);
+           ps.setInt(1, id);
+           ResultSet rs=ps.executeQuery();
+           if(rs.next()){
+           alumno=new Alumno();
+           alumno.setIdAlumno(id);
+           alumno.setDni(rs.getInt("dni"));
+           alumno.setApellido(rs.getString("apellido"));
+           alumno.setNombre("nombre");
+           alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+           alumno.setEstado(true);
+           }else{
+           JOptionPane.showMessageDialog(null, "No existe el alumno");
+           }
+           ps.close();
+           
+       } catch (SQLException ex) {
+           Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+       }
+   return alumno;
+   }
+   
+   public Alumno buscarAlumnoPorDNI(int dni){
+   String sql="SELECT idAlumno,dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni=? AND estado=1";
+   Alumno alumno=null;    
+   try {
+           PreparedStatement ps=con.prepareStatement(sql);
+           ps.setInt(1, dni);
+           ResultSet rs=ps.executeQuery();
+           if(rs.next()){
+           alumno=new Alumno();
+           alumno.setIdAlumno(rs.getInt("idAlumno"));
+           alumno.setDni(dni);
+           alumno.setApellido(rs.getString("apellido"));
+           alumno.setNombre("nombre");
+           alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+           alumno.setEstado(true);
+           }else{
+           JOptionPane.showMessageDialog(null, "No existe el alumno");
+           }
+           ps.close();
+           
+       } catch (SQLException ex) {
+           Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+       }
+   return alumno;
+   }
 }
