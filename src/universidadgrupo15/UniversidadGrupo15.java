@@ -8,7 +8,7 @@ import universidadgrupo15.accesoaDatos.AlumnoData;
 import universidadgrupo15.accesoaDatos.MateriaData;
 import universidadgrupo15.entidades.Alumno;
 import universidadgrupo15.entidades.Materia;
-import accesoADatos.MateriaData;
+
 import java.time.LocalDate;
 import universidadgrupo15.entidades.Alumno;
 import universidadgrupo15.entidades.Materia;
@@ -35,8 +35,8 @@ public class UniversidadGrupo15 {
 //     Alumno juan=new Alumno(12323,"Luna","Pedro",LocalDate.of(2012,4,23),true);
      AlumnoData alum=new AlumnoData();  
       MateriaData mat = new MateriaData();
-     Materia ciencias=new Materia("Ciencias Sociales", 2001, true);
-     mat.guardarMateria(ciencias);
+//     Materia ciencias=new Materia("Ciencias Sociales", 2001, true);
+//     mat.guardarMateria(ciencias);
 //     alum.guardarAlumno(juan);
 //     alum.eliminarAlumno(2);
 //alum.modificarAlumno(juan);
