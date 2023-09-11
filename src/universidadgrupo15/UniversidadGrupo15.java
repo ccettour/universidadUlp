@@ -1,8 +1,9 @@
 package universidadgrupo15;
 
-import accesoADatos.AlumnoData;
+import accesoADatos.MateriaData;
 import java.time.LocalDate;
 import universidadgrupo15.entidades.Alumno;
+import universidadgrupo15.entidades.Materia;
 
 public class UniversidadGrupo15 {
 
@@ -22,12 +23,10 @@ public class UniversidadGrupo15 {
             System.out.println(aluEncontrado.toString());
         }*/
         
-        AlumnoData alumnoData = new AlumnoData();
-        for(Alumno alumno:alumnoData.listarAlumnos()){
-            System.out.println(alumno.getDni());
-            System.out.println(alumno.getApellido());
-            System.out.println(alumno.getNombre());
-            System.out.println(alumno.getFechaNac());
+        MateriaData mat = new MateriaData();
+        for(Materia materia:mat.listarMaterias()){
+            System.out.println(materia.getNombre());
+            System.out.println(materia.getAño());
         }
     }
     
