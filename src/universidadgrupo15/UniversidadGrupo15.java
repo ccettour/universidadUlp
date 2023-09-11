@@ -41,11 +41,11 @@ public class UniversidadGrupo15 {
 //alum.guardarAlumno(juan);
 //     Alumno alumnoEncontrado=alum.buscarAlumnoPorDNI(44445);
 //        System.out.println("nombre: "+alumnoEncontrado);
-      
-        for(Materia materia:mat.listarMaterias()){
-            System.out.println(materia.getNombre());
-            System.out.println(materia.getAño());
-        }
+      mat.eliminarMateria(1);
+//        for(Materia materia:mat.listarMaterias()){
+//            System.out.println(materia.getNombre());
+//            System.out.println(materia.getAño());
+//        }
     }
     
 }
