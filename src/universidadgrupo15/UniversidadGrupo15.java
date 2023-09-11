@@ -8,10 +8,8 @@ import universidadgrupo15.accesoaDatos.AlumnoData;
 import universidadgrupo15.accesoaDatos.MateriaData;
 import universidadgrupo15.entidades.Alumno;
 import universidadgrupo15.entidades.Materia;
-
 import java.time.LocalDate;
-import universidadgrupo15.entidades.Alumno;
-import universidadgrupo15.entidades.Materia;
+
 
 public class UniversidadGrupo15 {
 
