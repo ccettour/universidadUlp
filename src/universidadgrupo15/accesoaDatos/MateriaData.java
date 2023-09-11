@@ -36,8 +36,32 @@ public class MateriaData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos");
         }
-    
+        
     }
+    
+    public void modificarMateria(Materia materia){
+    String sql="UPDATE materia SET nombre = ?,año = ?,estado = ? WHERE  IdMateria = ?";
+    PreparedStatement ps=null;
+    
+        try {
+            ps=con.prepareStatement(sql);
+            ps.setString(1, materia.getNombre());
+            ps.setInt(2, materia.getAño());
+            ps.setBoolean(3, materia.isEstado());
+           int exito= ps.executeUpdate();
+           
+            if (exito == 1) {
+              JOptionPane.showMessageDialog(null, "Materia modificada");
+            }else{
+                JOptionPane.showMessageDialog(null, "La materia no existe");
+            }
+        } catch (SQLException ex) {
+         JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos");
+        }
+    
+    }  
+    
+    
     
      public List<Materia> listarMaterias() {
         String sql = "SELECT * FROM materia WHERE estado=1";
