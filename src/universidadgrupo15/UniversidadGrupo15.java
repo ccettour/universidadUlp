@@ -8,10 +8,8 @@ import universidadgrupo15.accesoaDatos.AlumnoData;
 import universidadgrupo15.accesoaDatos.MateriaData;
 import universidadgrupo15.entidades.Alumno;
 import universidadgrupo15.entidades.Materia;
-
 import java.time.LocalDate;
-import universidadgrupo15.entidades.Alumno;
-import universidadgrupo15.entidades.Materia;
+
 
 public class UniversidadGrupo15 {
 
@@ -43,11 +41,11 @@ public class UniversidadGrupo15 {
 //alum.guardarAlumno(juan);
 //     Alumno alumnoEncontrado=alum.buscarAlumnoPorDNI(44445);
 //        System.out.println("nombre: "+alumnoEncontrado);
-      
-        for(Materia materia:mat.listarMaterias()){
-            System.out.println(materia.getNombre());
-            System.out.println(materia.getAño());
-        }
+//      mat.eliminarMateria(1);
+//        for(Materia materia:mat.listarMaterias()){
+//            System.out.println(materia.getNombre());
+//            System.out.println(materia.getAño());
+//        }
     }
     
 }

@@ -106,7 +106,7 @@ public class AlumnoData {
            ps.close();
            
        } catch (SQLException ex) {
-           Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+          JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de alumnos");
        }
    return alumno;
    }
@@ -132,7 +132,7 @@ public class AlumnoData {
            ps.close();
            
        } catch (SQLException ex) {
-           Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+         JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de alumnos");
        }
    return alumno;
    }
@@ -159,7 +159,7 @@ public class AlumnoData {
            ps.close();
            
        } catch (SQLException ex) {
-           Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
+          JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de alumnos");
        }
    return alumnos;
    }
