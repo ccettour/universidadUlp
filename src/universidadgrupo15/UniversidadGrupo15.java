@@ -9,6 +9,10 @@ import universidadgrupo15.accesoaDatos.MateriaData;
 import universidadgrupo15.entidades.Alumno;
 import universidadgrupo15.entidades.Materia;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import universidadgrupo15.accesoaDatos.InscripcionData;
+import universidadgrupo15.entidades.Inscripcion;
 
 
 public class UniversidadGrupo15 {
@@ -33,7 +37,17 @@ public class UniversidadGrupo15 {
 //     Alumno juan=new Alumno(12323,"Luna","Pedro",LocalDate.of(2012,4,23),true);
      AlumnoData alum=new AlumnoData();  
       MateriaData mat = new MateriaData();
-//     Materia ciencias=new Materia("Ciencias Sociales", 2001, true);
+      InscripcionData ind=new InscripcionData();
+//      Inscripcion ins=new Inscripcion(5, alum.buscarAlumno(1), mat.buscarMateria(4));
+//      List<Inscripcion>inscripciones=ind.obtenerInscripciones();
+//      for(Inscripcion insc:ind.obtenerInscripciones()){
+//          System.out.println(insc.toString());
+//      }
+      for(Materia insc:ind.obtenerMateriasCursadas(1)){
+          System.out.println(insc.toString());
+      }
+//      ind.guardarInscripcion(ins);
+//     Materia ciencias=new Materia("Física", 6, true);
 //     mat.guardarMateria(ciencias);
 //     alum.guardarAlumno(juan);
 //     alum.eliminarAlumno(2);
