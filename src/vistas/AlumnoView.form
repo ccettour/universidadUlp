@@ -57,7 +57,6 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jDateChooser2" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -92,11 +91,8 @@
                   <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                  <Component id="jDateChooser2" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
+              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -148,8 +144,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Fecha de Nacimiento:"/>
       </Properties>
-    </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
     </Component>
   </SubComponents>
 </Form>
