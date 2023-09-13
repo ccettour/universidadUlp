@@ -125,7 +125,6 @@ public class InscripcionData {
              materia.setNombre(rs.getString("nombre"));
              materia.setAño(rs.getInt("año"));
              materia.setEstado(true);
-                 
              materias.add(materia);
              }
              ps.close();
