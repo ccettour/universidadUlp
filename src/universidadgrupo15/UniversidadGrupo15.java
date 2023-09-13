@@ -19,7 +19,7 @@ public class UniversidadGrupo15 {
 
     public static void main(String[] args) {
         /*
-        //Alumno alumno = new Alumno(15986523,"Lopez","María",LocalDate.of(1980,4,25),true);
+        //Alumno alumno = new Alumno(15986523,"Lopez","MarÃ­a",LocalDate.of(1980,4,25),true);
         AlumnoData alu=new AlumnoData();
         //alu.guardarAlumno(alumno);
         
@@ -47,7 +47,7 @@ public class UniversidadGrupo15 {
           System.out.println(insc.toString());
       }
 //      ind.guardarInscripcion(ins);
-//     Materia ciencias=new Materia("Física", 6, true);
+//     Materia ciencias=new Materia("FÃ­sica", 6, true);
 //     mat.guardarMateria(ciencias);
 //     alum.guardarAlumno(juan);
 //     alum.eliminarAlumno(2);
@@ -58,7 +58,7 @@ public class UniversidadGrupo15 {
 //      mat.eliminarMateria(1);
 //        for(Materia materia:mat.listarMaterias()){
 //            System.out.println(materia.getNombre());
-//            System.out.println(materia.getAño());
+//            System.out.println(materia.getAÃ±o());
 //        }
     }
     

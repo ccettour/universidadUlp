@@ -37,13 +37,14 @@ public class InscripcionData {
              ResultSet rs=ps.getGeneratedKeys();
              if (rs.next()) {
                  insc.setIdInscripcion(rs.getInt(1));
-                 JOptionPane.showMessageDialog(null, "Inscripción exitosa");
+                 JOptionPane.showMessageDialog(null, "InscripciÃ³n exitosa");
              }
              ps.close();
          } catch (SQLException ex) {
              JOptionPane.showMessageDialog(null, "Error al acceder a la tabla de inscripciones");
          }
      }
+     
      
     public List<Inscripcion> obtenerInscripciones(){
     List <Inscripcion> inscripciones= new ArrayList<>();      
@@ -112,8 +113,8 @@ public class InscripcionData {
     
     public List<Materia> obtenerMateriasNoCursadas(int id){
     List<Materia> materias= new ArrayList<>();
-    String sql="SELECT inscripcion.Idmateria, nombre, año FROM `inscripcion` "
-            + "JOIN materia ON inscripcion.Idmateria=materia.IdMateria WHERE NOT inscripcion.Idalumno=?";
+    String sql="SELECT * FROM `materia` WHERE estado=1 and Idmateria NOT IN " 
+            + "(SELECT Idmateria FROM inscripcion where Idalumno = ?)";
          try {
              PreparedStatement ps=con.prepareStatement(sql);
              ps.setInt(1, id);
