@@ -43,7 +43,7 @@ public class UniversidadGrupo15 {
 //      for(Inscripcion insc:ind.obtenerInscripciones()){
 //          System.out.println(insc.toString());
 //      }
-      for(Materia insc:ind.obtenerMateriasCursadas(1)){
+      for(Materia insc:ind.obtenerMateriasNoCursadas(2)){
           System.out.println(insc.toString());
       }
 //      ind.guardarInscripcion(ins);
