@@ -43,9 +43,9 @@ public class UniversidadGrupo15 {
 //      for(Inscripcion insc:ind.obtenerInscripciones()){
 //          System.out.println(insc.toString());
 //      }
-      for(Materia insc:ind.obtenerMateriasNoCursadas(2)){
-          System.out.println(insc.toString());
-      }
+//      for(Materia insc:ind.obtenerMateriasNoCursadas(2)){
+//          System.out.println(insc.toString());
+//      }
 //      ind.guardarInscripcion(ins);
 //     Materia ciencias=new Materia("FÃ­sica", 6, true);
 //     mat.guardarMateria(ciencias);
@@ -60,6 +60,7 @@ public class UniversidadGrupo15 {
 //            System.out.println(materia.getNombre());
 //            System.out.println(materia.getAÃ±o());
 //        }
+System.out.println(ind.obtenerAlumnosXMateria(2));
     }
     
 }
