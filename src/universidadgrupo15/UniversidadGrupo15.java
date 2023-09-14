@@ -38,14 +38,22 @@ public class UniversidadGrupo15 {
      AlumnoData alum=new AlumnoData();  
       MateriaData mat = new MateriaData();
       InscripcionData ind=new InscripcionData();
+      
+      //ind.actualizarNota(2, 3, 8);
+      //ind.borrarInscripcionMateriaAlumno(1, 2);
+       /* for(Alumno a:ind.obtenerAlumnosXMateria(3)){
+            System.out.println(a.toString());
+        }*/
+      
+      
 //      Inscripcion ins=new Inscripcion(5, alum.buscarAlumno(1), mat.buscarMateria(4));
 //      List<Inscripcion>inscripciones=ind.obtenerInscripciones();
 //      for(Inscripcion insc:ind.obtenerInscripciones()){
 //          System.out.println(insc.toString());
 //      }
-      for(Materia insc:ind.obtenerMateriasNoCursadas(2)){
+      /*for(Materia insc:ind.obtenerMateriasNoCursadas(2)){
           System.out.println(insc.toString());
-      }
+      }*/
 //      ind.guardarInscripcion(ins);
 //     Materia ciencias=new Materia("FÃ­sica", 6, true);
 //     mat.guardarMateria(ciencias);
