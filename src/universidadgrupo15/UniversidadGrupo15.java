@@ -35,9 +35,9 @@ public class UniversidadGrupo15 {
         
 
 //     Alumno juan=new Alumno(12323,"Luna","Pedro",LocalDate.of(2012,4,23),true);
-     AlumnoData alum=new AlumnoData();  
-      MateriaData mat = new MateriaData();
-      InscripcionData ind=new InscripcionData();
+//     AlumnoData alum=new AlumnoData();  
+//      MateriaData mat = new MateriaData();
+//      InscripcionData ind=new InscripcionData();
 //      Inscripcion ins=new Inscripcion(5, alum.buscarAlumno(1), mat.buscarMateria(4));
 //      List<Inscripcion>inscripciones=ind.obtenerInscripciones();
 //      for(Inscripcion insc:ind.obtenerInscripciones()){
@@ -60,7 +60,7 @@ public class UniversidadGrupo15 {
 //            System.out.println(materia.getNombre());
 //            System.out.println(materia.getAÃ±o());
 //        }
-System.out.println(ind.obtenerAlumnosXMateria(2));
+
     }
     
 }

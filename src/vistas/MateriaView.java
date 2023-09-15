@@ -4,7 +4,9 @@
  */
 package vistas;
 
+import javax.swing.JOptionPane;
 import universidadgrupo15.accesoaDatos.MateriaData;
+import universidadgrupo15.entidades.Materia;
 
 /**
  *
@@ -36,12 +38,13 @@ public class MateriaView extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         codigo = new javax.swing.JTextField();
         nombre = new javax.swing.JTextField();
-        año = new javax.swing.JTextField();
+        anio = new javax.swing.JTextField();
         Buscar = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        Nuevo = new javax.swing.JButton();
+        estado = new javax.swing.JRadioButton();
         Eliminar = new javax.swing.JButton();
+        Limpiar = new javax.swing.JButton();
         Guardar = new javax.swing.JButton();
+        Modificar = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -52,7 +55,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Gestión de Materias");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 380, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 380, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Código :");
@@ -68,10 +71,10 @@ public class MateriaView extends javax.swing.JInternalFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Estado :");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
         jPanel1.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 90, -1));
         jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 180, -1));
-        jPanel1.add(año, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 60, -1));
+        jPanel1.add(anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 60, -1));
 
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -81,52 +84,105 @@ public class MateriaView extends javax.swing.JInternalFrame {
         });
         jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, -1, -1));
 
-        jRadioButton1.setText("Activa");
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
-
-        Nuevo.setText("Nuevo");
-        jPanel1.add(Nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
+        estado.setText("Activa");
+        estado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estadoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
 
         Eliminar.setText("Eliminar");
-        jPanel1.add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
+
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
         Guardar.setText("Guardar");
-        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
+
+        Modificar.setText("Modificar");
+        jPanel1.add(Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-MateriaData mat=new MateriaData();
+MateriaData mat = new MateriaData();
+    boolean activo = false;
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        int id=Integer.parseInt(codigo.getText());
-        mat.buscarMateria(id);
+        int id = Integer.parseInt(codigo.getText());
+       mat.buscarMateria(id);
     }//GEN-LAST:event_BuscarActionPerformed
+
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+        String nom = nombre.getText();
+        int año = Integer.parseInt(anio.getText());
+        Materia mate = new Materia(nom, año, activo);
+        mat.guardarMateria(mate);   
+    }//GEN-LAST:event_GuardarActionPerformed
+
+    private void estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoActionPerformed
+        activo = true;
+    }//GEN-LAST:event_estadoActionPerformed
+
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
+        nombre.setText("");
+        anio.setText("");
+        codigo.setText("");
+    }//GEN-LAST:event_LimpiarActionPerformed
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+       
+        try {
+            int id=Integer.parseInt(codigo.getText());
+            mat.eliminarMateria(id);
+        } catch (java.lang.NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Ingrese código de identificacion de materia");
+        }
+       
+    }//GEN-LAST:event_EliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar;
     private javax.swing.JButton Eliminar;
     private javax.swing.JButton Guardar;
-    private javax.swing.JButton Nuevo;
-    private javax.swing.JTextField año;
+    private javax.swing.JButton Limpiar;
+    private javax.swing.JButton Modificar;
+    private javax.swing.JTextField anio;
     private javax.swing.JTextField codigo;
+    private javax.swing.JRadioButton estado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
 }

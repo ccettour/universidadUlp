@@ -9,7 +9,7 @@ import universidadgrupo15.entidades.Materia;
 public class MateriaData {
 
     private Connection con = null;
-
+ 
     public MateriaData() {
         con = Conexion.getConexion();
     }
@@ -89,6 +89,7 @@ public class MateriaData {
              materia.setNombre(rs.getString("nombre"));
              materia.setAño(rs.getInt("año"));
              materia.setEstado(true);
+             JOptionPane.showMessageDialog(null, materia);
             }else{
                 JOptionPane.showMessageDialog(null, "Materia no encontrada");
             }
@@ -96,6 +97,7 @@ public class MateriaData {
         } catch (SQLException ex) {
           JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
+        
         return materia;
     }
     
