@@ -63,7 +63,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="70" max="32767" attributes="0"/>
+              <EmptySpace pref="142" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -96,7 +96,7 @@
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   <Component id="jDateChooser2" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="77" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
