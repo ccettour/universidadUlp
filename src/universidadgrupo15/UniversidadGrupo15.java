@@ -18,26 +18,34 @@ import universidadgrupo15.entidades.Inscripcion;
 public class UniversidadGrupo15 {
 
     public static void main(String[] args) {
+        AlumnoData alum = new AlumnoData();
+        MateriaData mat = new MateriaData();
+        InscripcionData ind = new InscripcionData();
+        
         /*
-        //Alumno alumno = new Alumno(15986523,"Lopez","MarÃ­a",LocalDate.of(1980,4,25),true);
+        Alumno alumno = new Alumno(32145687,"Manzanares","Leticia",LocalDate.of(1989,8,25),true);
         AlumnoData alu=new AlumnoData();
-        //alu.guardarAlumno(alumno);
+        alu.guardarAlumno(alumno);
+        */
         
         //alu.modificarAlumno(alumno);
-        
         // alu.eliminarAlumno(1);
+//        Alumno aluEncontrado = alu.buscarAlumnoPorDni(15986523);
+//        if(aluEncontrado!=null){
+//            System.out.println(aluEncontrado.toString());
+//        }
+        /*
+        mat.guardarMateria(new Materia("Programación 1",1,true));
+        mat.guardarMateria(new Materia("Bases de datos",2,true));
+        mat.guardarMateria(new Materia("Arquitectura de Computadoras",1,true));
+        */
         
-        Alumno aluEncontrado = alu.buscarAlumnoPorDni(15986523);
-        if(aluEncontrado!=null){
-            
-            System.out.println(aluEncontrado.toString());
-        }*/
-        
-
-//     Alumno juan=new Alumno(12323,"Luna","Pedro",LocalDate.of(2012,4,23),true);
-     AlumnoData alum=new AlumnoData();  
-      MateriaData mat = new MateriaData();
-      InscripcionData ind=new InscripcionData();
+        /*
+        ind.guardarInscripcion(new Inscripcion(5,alum.buscarAlumno(1),mat.buscarMateria(1)));
+        ind.guardarInscripcion(new Inscripcion(8,alum.buscarAlumno(3),mat.buscarMateria(1)));
+        ind.guardarInscripcion(new Inscripcion(7,alum.buscarAlumno(1),mat.buscarMateria(3)));
+        ind.guardarInscripcion(new Inscripcion(2,alum.buscarAlumno(4),mat.buscarMateria(2)));
+        */
       
       //ind.actualizarNota(2, 3, 8);
       //ind.borrarInscripcionMateriaAlumno(1, 2);
@@ -46,7 +54,6 @@ public class UniversidadGrupo15 {
         }*/
       
       
-//      Inscripcion ins=new Inscripcion(5, alum.buscarAlumno(1), mat.buscarMateria(4));
 //      List<Inscripcion>inscripciones=ind.obtenerInscripciones();
 //      for(Inscripcion insc:ind.obtenerInscripciones()){
 //          System.out.println(insc.toString());
