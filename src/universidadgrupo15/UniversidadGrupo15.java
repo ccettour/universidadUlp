@@ -36,7 +36,7 @@ public class UniversidadGrupo15 {
 
 //     Alumno juan=new Alumno(12323,"Luna","Pedro",LocalDate.of(2012,4,23),true);
 //     AlumnoData alum=new AlumnoData();  
-//      MateriaData mat = new MateriaData();
+     MateriaData mat = new MateriaData();
 //      InscripcionData ind=new InscripcionData();
 //      Inscripcion ins=new Inscripcion(5, alum.buscarAlumno(1), mat.buscarMateria(4));
 //      List<Inscripcion>inscripciones=ind.obtenerInscripciones();
@@ -47,8 +47,9 @@ public class UniversidadGrupo15 {
 //          System.out.println(insc.toString());
 //      }
 //      ind.guardarInscripcion(ins);
-//     Materia ciencias=new Materia("FÃ­sica", 6, true);
-//     mat.guardarMateria(ciencias);
+//     Materia ciencias=new Materia(8,"Fisica cuantica", 5, true);
+////  mat.guardarMateria(ciencias);
+//mat.modificarMateria(ciencias);
 //     alum.guardarAlumno(juan);
 //     alum.eliminarAlumno(2);
 //alum.modificarAlumno(juan);

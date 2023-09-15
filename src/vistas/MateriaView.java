@@ -117,6 +117,11 @@ public class MateriaView extends javax.swing.JInternalFrame {
         jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
 
         Modificar.setText("Modificar");
+        Modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarActionPerformed(evt);
+            }
+        });
         jPanel1.add(Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -166,6 +171,19 @@ MateriaData mat = new MateriaData();
         }
        
     }//GEN-LAST:event_EliminarActionPerformed
+
+    private void ModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarActionPerformed
+        try {
+            int id=Integer.parseInt(codigo.getText());
+            String nom = nombre.getText();
+            int año = Integer.parseInt(anio.getText());
+            Materia materia=new Materia(id, nom, año, activo);
+            mat.modificarMateria(materia);
+        } catch (java.lang.NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Uno de los campos fue ingresado "
+                    + "incorrectamente o se encuentra vacío"+"\nIntente de nuevo");
+        }
+    }//GEN-LAST:event_ModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
