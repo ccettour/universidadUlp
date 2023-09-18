@@ -1,4 +1,4 @@
-package vistas;
+package universidadgrupo15.vistas;
 
 import java.util.List;
 import javax.swing.table.DefaultTableModel;

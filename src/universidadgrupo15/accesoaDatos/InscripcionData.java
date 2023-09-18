@@ -1,23 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package universidadgrupo15.accesoaDatos;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import universidadgrupo15.entidades.Alumno;
 import universidadgrupo15.entidades.Inscripcion;
 import universidadgrupo15.entidades.Materia;
 
-/**
- *
- * @author User
- */
+
 public class InscripcionData {
      private Connection con = null;
      private MateriaData mateData=new MateriaData();
