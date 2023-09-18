@@ -60,11 +60,11 @@ public class MateriaView extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Código :");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Nombre :");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Año :");
@@ -73,9 +73,9 @@ public class MateriaView extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Estado :");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
-        jPanel1.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 90, -1));
-        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 180, -1));
-        jPanel1.add(anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 60, -1));
+        jPanel1.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 90, -1));
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 180, -1));
+        jPanel1.add(anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 60, -1));
 
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +91,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
                 estadoActionPerformed(evt);
             }
         });
-        jPanel1.add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
+        jPanel1.add(estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, -1, -1));
 
         Eliminar.setText("Eliminar");
         Eliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +126,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
         jPanel1.add(Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/libros1.png"))); // NOI18N
-        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 270, 340));
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 270, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,7 +136,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
         );
 
         pack();
