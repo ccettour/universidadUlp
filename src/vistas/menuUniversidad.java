@@ -34,6 +34,7 @@ public class menuUniversidad extends javax.swing.JFrame {
         jMenuItemMateria = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        ConsultaAlumnoMateria = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -78,6 +79,15 @@ public class menuUniversidad extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Consultas");
+
+        ConsultaAlumnoMateria.setText("Alumnos por materia");
+        ConsultaAlumnoMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaAlumnoMateriaActionPerformed(evt);
+            }
+        });
+        jMenu4.add(ConsultaAlumnoMateria);
+
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Salir");
@@ -101,8 +111,6 @@ public class menuUniversidad extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        
-        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItemMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMateriaActionPerformed
@@ -114,9 +122,17 @@ public class menuUniversidad extends javax.swing.JFrame {
         escritorio.moveToFront(mv);
     }//GEN-LAST:event_jMenuItemMateriaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void ConsultaAlumnoMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaAlumnoMateriaActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        ConsultaAlumnoxMateria cam=new ConsultaAlumnoxMateria();
+        cam.setVisible(true);
+        escritorio.add(cam);
+        escritorio.moveToFront(cam);
+        
+    }//GEN-LAST:event_ConsultaAlumnoMateriaActionPerformed
+
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -150,6 +166,7 @@ public class menuUniversidad extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ConsultaAlumnoMateria;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

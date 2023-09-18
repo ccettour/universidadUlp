@@ -56,10 +56,7 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "\nMateria: " + nombre
-                + "\naño: " + año  
-                +"\ncodigo de identificación de Materia= " + idMateria
-                +"\nestado: "+ estado;
+        return nombre +", "+año+ " año";
     }
     
     
