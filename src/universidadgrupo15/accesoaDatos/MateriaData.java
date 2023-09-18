@@ -90,7 +90,7 @@ public class MateriaData {
              materia.setNombre(rs.getString("nombre"));
              materia.setAño(rs.getInt("año"));
              materia.setEstado(true);
-             JOptionPane.showMessageDialog(null, materia);
+             
             }else{
                 JOptionPane.showMessageDialog(null, "Materia no encontrada");
             }

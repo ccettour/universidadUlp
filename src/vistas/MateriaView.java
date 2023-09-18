@@ -45,6 +45,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
         Limpiar = new javax.swing.JButton();
         Guardar = new javax.swing.JButton();
         Modificar = new javax.swing.JButton();
+        fondo = new javax.swing.JLabel();
 
         setClosable(true);
 
@@ -124,6 +125,9 @@ public class MateriaView extends javax.swing.JInternalFrame {
         });
         jPanel1.add(Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/libros1.png"))); // NOI18N
+        jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 270, 340));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,7 +136,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -141,7 +145,10 @@ MateriaData mat = new MateriaData();
     boolean activo = false;
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         int id = Integer.parseInt(codigo.getText());
-       mat.buscarMateria(id);
+        Materia m=mat.buscarMateria(id);
+        nombre.setText(m.getNombre());
+        anio.setText(String.valueOf(m.getAño()));
+        estado.setSelected(m.isEstado());
     }//GEN-LAST:event_BuscarActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
@@ -162,6 +169,7 @@ MateriaData mat = new MateriaData();
         nombre.setText("");
         anio.setText("");
         codigo.setText("");
+        estado.setSelected(false);
     }//GEN-LAST:event_LimpiarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
@@ -198,6 +206,7 @@ MateriaData mat = new MateriaData();
     private javax.swing.JTextField anio;
     private javax.swing.JTextField codigo;
     private javax.swing.JRadioButton estado;
+    private javax.swing.JLabel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
