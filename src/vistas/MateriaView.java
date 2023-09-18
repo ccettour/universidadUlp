@@ -149,6 +149,9 @@ MateriaData mat = new MateriaData();
         int año = Integer.parseInt(anio.getText());
         Materia mate = new Materia(nom, año, activo);
         mat.guardarMateria(mate);   
+        nombre.setText("");
+        anio.setText("");
+        codigo.setText("");
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoActionPerformed
