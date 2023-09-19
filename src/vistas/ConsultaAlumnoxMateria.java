@@ -4,9 +4,13 @@
  */
 package vistas;
 
+
 import java.util.*;
-import javax.swing.JOptionPane;
+
+import javax.swing.table.DefaultTableModel;
 import universidadgrupo15.accesoaDatos.MateriaData;
+import universidadgrupo15.accesoaDatos.InscripcionData;
+import universidadgrupo15.entidades.Alumno;
 import universidadgrupo15.entidades.Materia;
 
 /**
@@ -14,13 +18,16 @@ import universidadgrupo15.entidades.Materia;
  * @author User
  */
 public class ConsultaAlumnoxMateria extends javax.swing.JInternalFrame {
-
+private DefaultTableModel model=new DefaultTableModel();
+InscripcionData ind=new InscripcionData();
     /**
      * Creates new form ConsultaAlumnoxMateria
      */
     public ConsultaAlumnoxMateria() {
         initComponents();
+        cabecera();
         llenarCombo();
+        
     }
 
     private void llenarCombo(){
@@ -63,14 +70,17 @@ public class ConsultaAlumnoxMateria extends javax.swing.JInternalFrame {
         jLabel2.setText("Seleccione una Materia :");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 170, 20));
 
+        materiasListadas.setToolTipText("");
+        materiasListadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                materiasListadasActionPerformed(evt);
+            }
+        });
         jPanel1.add(materiasListadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 240, -1));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "ID", "DNI", "Apellido", "Nombre"
@@ -109,6 +119,35 @@ public class ConsultaAlumnoxMateria extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void materiasListadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materiasListadasActionPerformed
+       
+     Materia mate=(Materia)materiasListadas.getSelectedItem();
+     List<Alumno> listaN= ind.obtenerAlumnosXMateria(mate.getIdMateria());
+            for (Alumno alum : listaN) {
+             model.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), 
+                                alum.getApellido(), alum.getNombre()});
+            }
+        
+
+//  model.addRow(new Object[]{alumno.getIdAlumno(), alumno.getDni(), 
+//          alumno.getApellido(), alumno.getNombre()});
+
+//private void listarMaterias(boolean cursadas){
+//        limpiarTabla();
+//        Alumno alumno = (Alumno) jcbAlumnosInsc.getSelectedItem();
+//        List<Materia> materias;
+//        if(cursadas){
+//            materias = ind.obtenerMateriasCursadas(alumno.getIdAlumno());
+//        } else {
+//            materias = ind.obtenerMateriasNoCursadas(alumno.getIdAlumno());
+//        }
+//        
+//        for (Materia m : materias) {
+//            tabla.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAño()});
+//        }
+//    }
+    }//GEN-LAST:event_materiasListadasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -118,4 +157,18 @@ public class ConsultaAlumnoxMateria extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> materiasListadas;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
+
+private void cabecera(){
+    model.addColumn("ID");
+    model.addColumn("DNI");
+    model.addColumn("Apellido");
+    model.addColumn("Nombre");
+    tabla.setModel(model);
+    
+    
+}
+private void datos(Alumno alum){
+model.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), 
+                                alum.getApellido(), alum.getNombre()});
+}
 }
