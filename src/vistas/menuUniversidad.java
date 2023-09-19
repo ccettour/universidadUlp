@@ -98,7 +98,7 @@ public class menuUniversidad extends javax.swing.JFrame {
         escritorio.moveToFront(av);
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
