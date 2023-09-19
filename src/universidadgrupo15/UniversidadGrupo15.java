@@ -46,6 +46,8 @@ public class UniversidadGrupo15 {
         ind.guardarInscripcion(new Inscripcion(7,alum.buscarAlumno(1),mat.buscarMateria(3)));
         ind.guardarInscripcion(new Inscripcion(2,alum.buscarAlumno(4),mat.buscarMateria(2)));
         */
+        
+        ind.obtenerInscripcionesPorAlumno(1);
       
       //ind.actualizarNota(2, 3, 8);
       //ind.borrarInscripcionMateriaAlumno(1, 2);

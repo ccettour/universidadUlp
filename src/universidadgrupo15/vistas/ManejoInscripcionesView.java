@@ -8,6 +8,7 @@ import universidadgrupo15.entidades.*;
 public class ManejoInscripcionesView extends javax.swing.JInternalFrame {
 
     private DefaultTableModel tabla = new DefaultTableModel(){
+        @Override
         public boolean isCellEditable(int fila, int columna){
             return false;
         }
@@ -72,23 +73,6 @@ public class ManejoInscripcionesView extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Seleccione un alumno:");
 
-        jcbAlumnosInsc.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jcbAlumnosInscItemStateChanged(evt);
-            }
-        });
-        jcbAlumnosInsc.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jcbAlumnosInscMouseClicked(evt);
-            }
-        });
-        jcbAlumnosInsc.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-                jcbAlumnosInscCaretPositionChanged(evt);
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-            }
-        });
         jcbAlumnosInsc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbAlumnosInscActionPerformed(evt);
@@ -143,14 +127,8 @@ public class ManejoInscripcionesView extends javax.swing.JInternalFrame {
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jrbMateriasInsc)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jrbMateriasNoInsc)
-                .addGap(95, 95, 95))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
                         .addComponent(jbInscribir)
@@ -165,18 +143,29 @@ public class ManejoInscripcionesView extends javax.swing.JInternalFrame {
             .addGroup(panelLayout.createSequentialGroup()
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(jLabel1))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(jLabel3))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addGap(177, 177, 177)
+                                .addComponent(jLabel3))
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addComponent(jSeparator1))
+                    .addGroup(panelLayout.createSequentialGroup()
+                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addGap(74, 74, 74)
+                                .addComponent(jrbMateriasInsc)
+                                .addGap(79, 79, 79)
+                                .addComponent(jrbMateriasNoInsc))
+                            .addGroup(panelLayout.createSequentialGroup()
+                                .addGap(192, 192, 192)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,13 +209,15 @@ public class ManejoInscripcionesView extends javax.swing.JInternalFrame {
 
     private void jrbMateriasInscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMateriasInscActionPerformed
         // TODO add your handling code here:
-        
+        jbDesinscribir.setEnabled(true);
+        jbInscribir.setEnabled(false);
         listarMaterias(true);
     }//GEN-LAST:event_jrbMateriasInscActionPerformed
 
     private void jrbMateriasNoInscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbMateriasNoInscActionPerformed
         // TODO add your handling code here:
-
+        jbDesinscribir.setEnabled(false);
+        jbInscribir.setEnabled(true);
         listarMaterias(false);
     }//GEN-LAST:event_jrbMateriasNoInscActionPerformed
 
@@ -264,21 +255,6 @@ public class ManejoInscripcionesView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         limpiarTabla();
     }//GEN-LAST:event_jcbAlumnosInscActionPerformed
-
-    private void jcbAlumnosInscMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbAlumnosInscMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jcbAlumnosInscMouseClicked
-
-    private void jcbAlumnosInscItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbAlumnosInscItemStateChanged
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_jcbAlumnosInscItemStateChanged
-
-    private void jcbAlumnosInscCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jcbAlumnosInscCaretPositionChanged
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jcbAlumnosInscCaretPositionChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
