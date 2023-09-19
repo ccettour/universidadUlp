@@ -39,7 +39,7 @@ public class InscripcionData {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 insc.setIdInscripcion(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "InscripciÃƒÂ³n exitosa");
+                JOptionPane.showMessageDialog(null, "InscripciÃƒÆ’Ã‚Â³n exitosa");
             }
             ps.close();
         } catch (SQLException ex) {
@@ -75,7 +75,7 @@ public class InscripcionData {
             ps.setInt(2, idMateria);
             int exito = ps.executeUpdate();
             if (exito > 0) {
-                JOptionPane.showMessageDialog(null, "Inscripcion eliminada con Ã©xito");
+                JOptionPane.showMessageDialog(null, "Inscripcion eliminada con ÃƒÂ©xito");
             }
             ps.close();
         } catch (SQLException ex) {
@@ -128,7 +128,7 @@ public class InscripcionData {
 
     public List<Materia> obtenerMateriasCursadas(int id) {
         List<Materia> materias = new ArrayList<>();
-        String sql = "SELECT inscripcion.Idmateria, nombre, aÃ±o FROM `inscripcion` "
+        String sql = "SELECT inscripcion.Idmateria, nombre, aÃƒÂ±o FROM `inscripcion` "
                 + "JOIN materia ON inscripcion.Idmateria=materia.IdMateria WHERE inscripcion.Idalumno=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -138,7 +138,7 @@ public class InscripcionData {
                 Materia materia = new Materia();
                 materia.setIdMateria(rs.getInt("Idmateria"));
                 materia.setNombre(rs.getString("nombre"));
-                materia.setAño(rs.getInt("aÃ±o"));
+                materia.setAño(rs.getInt("aÃƒÂ±o"));
                 materia.setEstado(true);
                 materias.add(materia);
             }
@@ -161,7 +161,7 @@ public class InscripcionData {
                 Materia materia = new Materia();
                 materia.setIdMateria(rs.getInt("Idmateria"));
                 materia.setNombre(rs.getString("nombre"));
-                materia.setAño(rs.getInt("aÃ±o"));
+                materia.setAño(rs.getInt("aÃƒÂ±o"));
                 materia.setEstado(true);
                 materias.add(materia);
             }
