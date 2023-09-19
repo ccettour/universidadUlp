@@ -27,7 +27,7 @@ InscripcionData ind=new InscripcionData();
         initComponents();
         cabecera();
         llenarCombo();
-        
+        listar();
     }
 
     private void llenarCombo(){
@@ -39,6 +39,15 @@ InscripcionData ind=new InscripcionData();
         }
     }
     
+    private void listar(){
+    Materia mate=(Materia)materiasListadas.getSelectedItem();
+     List<Alumno> listaN= ind.obtenerAlumnosXMateria(mate.getIdMateria());
+            for (Alumno alum : listaN) {
+             model.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), 
+                                alum.getApellido(), alum.getNombre()});
+            }
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,11 +80,6 @@ InscripcionData ind=new InscripcionData();
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 170, 20));
 
         materiasListadas.setToolTipText("");
-        materiasListadas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                materiasListadasActionPerformed(evt);
-            }
-        });
         jPanel1.add(materiasListadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 240, -1));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -111,35 +115,6 @@ InscripcionData ind=new InscripcionData();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void materiasListadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materiasListadasActionPerformed
-       
-     Materia mate=(Materia)materiasListadas.getSelectedItem();
-     List<Alumno> listaN= ind.obtenerAlumnosXMateria(mate.getIdMateria());
-            for (Alumno alum : listaN) {
-             model.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), 
-                                alum.getApellido(), alum.getNombre()});
-            }
-        
-
-//  model.addRow(new Object[]{alumno.getIdAlumno(), alumno.getDni(), 
-//          alumno.getApellido(), alumno.getNombre()});
-
-//private void listarMaterias(boolean cursadas){
-//        limpiarTabla();
-//        Alumno alumno = (Alumno) jcbAlumnosInsc.getSelectedItem();
-//        List<Materia> materias;
-//        if(cursadas){
-//            materias = ind.obtenerMateriasCursadas(alumno.getIdAlumno());
-//        } else {
-//            materias = ind.obtenerMateriasNoCursadas(alumno.getIdAlumno());
-//        }
-//        
-//        for (Materia m : materias) {
-//            tabla.addRow(new Object[]{m.getIdMateria(), m.getNombre(), m.getAño()});
-//        }
-//    }
-    }//GEN-LAST:event_materiasListadasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
