@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package vistas;
+package universidadgrupo15.vistas;
 
 /**
  *
@@ -32,20 +32,25 @@ public class menuUniversidad extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jmiInscripciones = new javax.swing.JMenuItem();
+        jmiNotas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        escritorio.setMinimumSize(new java.awt.Dimension(550, 550));
+        escritorio.setPreferredSize(new java.awt.Dimension(550, 550));
+
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Alumno");
@@ -64,6 +69,23 @@ public class menuUniversidad extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Administración");
+
+        jmiInscripciones.setText("Manejo de Inscripciones");
+        jmiInscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiInscripcionesActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmiInscripciones);
+
+        jmiNotas.setText("Manipulación de Notas");
+        jmiNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiNotasActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmiNotas);
+
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Consultas");
@@ -78,11 +100,11 @@ public class menuUniversidad extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -98,7 +120,27 @@ public class menuUniversidad extends javax.swing.JFrame {
         escritorio.moveToFront(av);
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-    
+
+    private void jmiInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiInscripcionesActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ManejoInscripcionesView miv = new ManejoInscripcionesView();
+        miv.setVisible(true);
+        escritorio.add(miv);
+        escritorio.moveToFront(miv);
+    }//GEN-LAST:event_jmiInscripcionesActionPerformed
+
+    private void jmiNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNotasActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ManipulacionNotasView mnv = new ManipulacionNotasView();
+        mnv.setVisible(true);
+        escritorio.add(mnv);
+        escritorio.moveToFront(mnv);
+    }//GEN-LAST:event_jmiNotasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -143,5 +185,7 @@ public class menuUniversidad extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jmiInscripciones;
+    private javax.swing.JMenuItem jmiNotas;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,40 +1,36 @@
 package universidadgrupo15;
 
-
-import universidadgrupo15.accesoaDatos.AlumnoData;
-import universidadgrupo15.accesoaDatos.MateriaData;
-import universidadgrupo15.entidades.Alumno;
-import universidadgrupo15.entidades.Materia;
+import universidadgrupo15.accesoaDatos.*;
+import universidadgrupo15.entidades.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import universidadgrupo15.accesoaDatos.InscripcionData;
-import universidadgrupo15.entidades.Inscripcion;
-
 
 public class UniversidadGrupo15 {
 
     public static void main(String[] args) {
+        AlumnoData alum = new AlumnoData();
+        MateriaData mat = new MateriaData();
+        InscripcionData ind = new InscripcionData();
+
         /*
-        //Alumno alumno = new Alumno(15986523,"Lopez","MarÃ­a",LocalDate.of(1980,4,25),true);
-        AlumnoData alu=new AlumnoData();
-        //alu.guardarAlumno(alumno);
-        
-        //alu.modificarAlumno(alumno);
-        
+         * Alumno alumno = new
+         * Alumno(32145687,"Manzanares","Leticia",LocalDate.of(1989,8,25),true);
+         * AlumnoData alu=new AlumnoData();
+         * alu.guardarAlumno(alumno);
+         */
+
+        // alu.modificarAlumno(alumno);
         // alu.eliminarAlumno(1);
         
-        Alumno aluEncontrado = alu.buscarAlumnoPorDni(15986523);
+        /*Alumno aluEncontrado = alu.buscarAlumnoPorDni(15986523);
         if(aluEncontrado!=null){
             
             System.out.println(aluEncontrado.toString());
         }*/
         
-    Alumno juan=new Alumno(12323,"Luna","Pedro",LocalDate.of(2012,4,23),true);
-     AlumnoData alum=new AlumnoData();  
-      MateriaData mat = new MateriaData();
-      InscripcionData ind=new InscripcionData();
-      alum.guardarAlumno(juan);
+
+//     Alumno juan=new Alumno(12323,"Luna","Pedro",LocalDate.of(2012,4,23),true);
       
       //ind.actualizarNota(2, 3, 8);
       //ind.borrarInscripcionMateriaAlumno(1, 2);
@@ -43,7 +39,6 @@ public class UniversidadGrupo15 {
         }*/
       
       
-//      Inscripcion ins=new Inscripcion(5, alum.buscarAlumno(1), mat.buscarMateria(4));
 //      List<Inscripcion>inscripciones=ind.obtenerInscripciones();
 //      for(Inscripcion insc:ind.obtenerInscripciones()){
 //          System.out.println(insc.toString());
@@ -66,5 +61,5 @@ public class UniversidadGrupo15 {
 //            System.out.println(materia.getAÃ±o());
 //        }
     }
-    
+
 }
