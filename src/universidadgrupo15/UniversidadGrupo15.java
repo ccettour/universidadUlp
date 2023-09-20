@@ -1,9 +1,6 @@
 package universidadgrupo15;
 
 
-import universidadgrupo15.accesoaDatos.Conexion;
-import java.sql.Connection;
-import java.time.LocalDate;
 import universidadgrupo15.accesoaDatos.AlumnoData;
 import universidadgrupo15.accesoaDatos.MateriaData;
 import universidadgrupo15.entidades.Alumno;
@@ -33,11 +30,11 @@ public class UniversidadGrupo15 {
             System.out.println(aluEncontrado.toString());
         }*/
         
-
-//     Alumno juan=new Alumno(12323,"Luna","Pedro",LocalDate.of(2012,4,23),true);
+    Alumno juan=new Alumno(12323,"Luna","Pedro",LocalDate.of(2012,4,23),true);
      AlumnoData alum=new AlumnoData();  
       MateriaData mat = new MateriaData();
       InscripcionData ind=new InscripcionData();
+      alum.guardarAlumno(juan);
       
       //ind.actualizarNota(2, 3, 8);
       //ind.borrarInscripcionMateriaAlumno(1, 2);
