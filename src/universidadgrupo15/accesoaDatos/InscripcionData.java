@@ -29,7 +29,7 @@ public class InscripcionData {
              ResultSet rs=ps.getGeneratedKeys();
              if (rs.next()) {
                  insc.setIdInscripcion(rs.getInt(1));
-                 JOptionPane.showMessageDialog(null, "InscripciÃ³n exitosa");
+                 JOptionPane.showMessageDialog(null, "Inscripción exitosa");
              }
              ps.close();
          } catch (SQLException ex) {
@@ -40,7 +40,7 @@ public class InscripcionData {
      
     public List<Inscripcion> obtenerInscripciones(){
     List <Inscripcion> inscripciones= new ArrayList<>();      
-    String sql="SELECT `IdInscripto`, `nota`, `Idalumno`, `Idmateria` FROM inscripcion";
+    String sql="SELECT `IdInscripto`, `nota`, `Idalumno`, `Idmateria` FROM inscripción";
          try {
              PreparedStatement ps=con.prepareStatement(sql);
              ResultSet rs=ps.executeQuery();
@@ -144,7 +144,7 @@ public class InscripcionData {
              ps.close();
          
          } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, "No se puede conectar a la tabla inscripcion");
+             JOptionPane.showMessageDialog(null, "No se puede conectar a la tabla inscripción");
          }
     }
     
