@@ -27,26 +27,35 @@ InscripcionData ind=new InscripcionData();
         initComponents();
         cabecera();
         llenarCombo();
-        listar();
+       
     }
 
     private void llenarCombo(){
     MateriaData mt=new MateriaData();
     List<Materia>lm=mt.listarMaterias();
     
-        for (int i = 0; i < lm.size(); i++) {
-           materiasListadas.addItem(lm.get(i).toString());
+        for (Materia mate : lm) {
+            materiasListadas.addItem(mate);
         }
     }
     
     private void listar(){
+    limpiarLista(); 
     Materia mate=(Materia)materiasListadas.getSelectedItem();
      List<Alumno> listaN= ind.obtenerAlumnosXMateria(mate.getIdMateria());
+     
             for (Alumno alum : listaN) {
              model.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), 
                                 alum.getApellido(), alum.getNombre()});
             }
+    }
     
+    private void limpiarLista(){
+    int algo=tabla.getRowCount()- 1 ;
+    
+        for (;algo >= 0; algo--) {
+            model.removeRow(algo);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,11 +89,20 @@ InscripcionData ind=new InscripcionData();
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 170, 20));
 
         materiasListadas.setToolTipText("");
+        materiasListadas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                materiasListadasActionPerformed(evt);
+            }
+        });
         jPanel1.add(materiasListadas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 240, -1));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
                 "ID", "DNI", "Apellido", "Nombre"
@@ -116,13 +134,17 @@ InscripcionData ind=new InscripcionData();
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void materiasListadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_materiasListadasActionPerformed
+        listar();
+    }//GEN-LAST:event_materiasListadasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> materiasListadas;
+    private javax.swing.JComboBox<Materia> materiasListadas;
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 
@@ -135,8 +157,5 @@ private void cabecera(){
     
     
 }
-private void datos(Alumno alum){
-model.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), 
-                                alum.getApellido(), alum.getNombre()});
-}
+
 }
