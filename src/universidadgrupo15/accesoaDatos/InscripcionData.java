@@ -128,7 +128,7 @@ public class InscripcionData {
 
     public List<Materia> obtenerMateriasCursadas(int id) {
         List<Materia> materias = new ArrayList<>();
-        String sql = "SELECT inscripcion.Idmateria, nombre, aÃƒÆ’Ã‚Â±o FROM `inscripcion` "
+        String sql = "SELECT inscripcion.Idmateria, nombre, año FROM `inscripcion` "
                 + "JOIN materia ON inscripcion.Idmateria=materia.IdMateria WHERE inscripcion.Idalumno=?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
