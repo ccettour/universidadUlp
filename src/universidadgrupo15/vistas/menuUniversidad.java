@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package universidadgrupo15.vistas;
 
-/**
- *
- * @author Chris
- */
+
 public class menuUniversidad extends javax.swing.JFrame {
 
     /**
@@ -27,30 +20,39 @@ public class menuUniversidad extends javax.swing.JFrame {
     private void initComponents() {
 
         escritorio = new javax.swing.JDesktopPane();
+        fondoMenu = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItemMateria = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jmiInscripciones = new javax.swing.JMenuItem();
         jmiNotas = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        ConsultaAlumnoMateria = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         escritorio.setMinimumSize(new java.awt.Dimension(550, 550));
-        escritorio.setPreferredSize(new java.awt.Dimension(550, 550));
+
+        fondoMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo15/vistas/fondo_menu.jpg"))); // NOI18N
+        fondoMenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        escritorio.setLayer(fondoMenu, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addComponent(fondoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addComponent(fondoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Alumno");
@@ -66,6 +68,15 @@ public class menuUniversidad extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Materia");
+
+        jMenuItemMateria.setText("Formulario de materias");
+        jMenuItemMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMateriaActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItemMateria);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Administración");
@@ -89,10 +100,16 @@ public class menuUniversidad extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Consultas");
-        jMenuBar1.add(jMenu4);
 
-        jMenu5.setText("Salir");
-        jMenuBar1.add(jMenu5);
+        ConsultaAlumnoMateria.setText("Alumnos por materia");
+        ConsultaAlumnoMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaAlumnoMateriaActionPerformed(evt);
+            }
+        });
+        jMenu4.add(ConsultaAlumnoMateria);
+
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
@@ -114,6 +131,7 @@ public class menuUniversidad extends javax.swing.JFrame {
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
+        fondoMenu();
         AlumnoView av = new AlumnoView();
         av.setVisible(true);
         escritorio.add(av);
@@ -125,6 +143,7 @@ public class menuUniversidad extends javax.swing.JFrame {
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
+        fondoMenu();
         ManejoInscripcionesView miv = new ManejoInscripcionesView();
         miv.setVisible(true);
         escritorio.add(miv);
@@ -135,11 +154,34 @@ public class menuUniversidad extends javax.swing.JFrame {
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
+        fondoMenu();
         ManipulacionNotasView mnv = new ManipulacionNotasView();
         mnv.setVisible(true);
         escritorio.add(mnv);
         escritorio.moveToFront(mnv);
     }//GEN-LAST:event_jmiNotasActionPerformed
+
+    private void jMenuItemMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMateriaActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        fondoMenu();
+        MateriaView mv = new MateriaView();
+        mv.setVisible(true);
+        escritorio.add(mv);
+        escritorio.moveToFront(mv);
+    }//GEN-LAST:event_jMenuItemMateriaActionPerformed
+
+    private void ConsultaAlumnoMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaAlumnoMateriaActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        fondoMenu();
+        ConsultaAlumnoxMateria cam=new ConsultaAlumnoxMateria();
+        cam.setVisible(true);
+        escritorio.add(cam);
+        escritorio.moveToFront(cam);
+
+    }//GEN-LAST:event_ConsultaAlumnoMateriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,15 +219,37 @@ public class menuUniversidad extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ConsultaAlumnoMateria;
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JPanel fondoMenu;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItemMateria;
     private javax.swing.JMenuItem jmiInscripciones;
     private javax.swing.JMenuItem jmiNotas;
     // End of variables declaration//GEN-END:variables
+
+    private void fondoMenu(){
+        fondoMenu = new javax.swing.JPanel();
+        fondoMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        fondoMenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        escritorio.setLayer(fondoMenu, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(fondoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(fondoMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+    }
+    
 }

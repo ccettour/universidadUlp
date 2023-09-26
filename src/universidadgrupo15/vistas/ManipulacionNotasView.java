@@ -39,12 +39,12 @@ public class ManipulacionNotasView extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         jcbAlumnos = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtMaterias = new javax.swing.JTable();
         jbGuardar = new javax.swing.JButton();
         jtfMatSelec = new javax.swing.JTextField();
         jcbNota = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
 
         setClosable(true);
 
@@ -52,10 +52,11 @@ public class ManipulacionNotasView extends javax.swing.JInternalFrame {
         panel.setMinimumSize(new java.awt.Dimension(500, 375));
         panel.setPreferredSize(new java.awt.Dimension(500, 375));
         panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 34, 492, 10));
+        panel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 42, 492, -1));
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Seleccione un alumno:");
-        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, 30));
 
         jcbAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,10 +64,6 @@ public class ManipulacionNotasView extends javax.swing.JInternalFrame {
             }
         });
         panel.add(jcbAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 252, -1));
-
-        jLabel3.setFont(new java.awt.Font("Source Code Pro Semibold", 0, 14)); // NOI18N
-        jLabel3.setText("Carga de Notas");
-        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 9, -1, -1));
 
         jtMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -112,6 +109,10 @@ public class ManipulacionNotasView extends javax.swing.JInternalFrame {
         });
         panel.add(jcbNota, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 50, -1));
 
+        jLabel4.setFont(new java.awt.Font("Source Code Pro Semibold", 1, 24)); // NOI18N
+        jLabel4.setText("Carga de Notas");
+        panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 40));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,6 +130,9 @@ public class ManipulacionNotasView extends javax.swing.JInternalFrame {
     private void jcbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnosActionPerformed
         // TODO add your handling code here:
         cargarTabla();
+        
+        jtfMatSelec.setText("");
+        jcbNota.setSelectedIndex(0);
     }//GEN-LAST:event_jcbAlumnosActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
@@ -162,7 +166,7 @@ public class ManipulacionNotasView extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbGuardar;
