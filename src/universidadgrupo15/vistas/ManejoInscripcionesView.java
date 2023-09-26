@@ -67,20 +67,26 @@ public class ManejoInscripcionesView extends javax.swing.JInternalFrame {
         setClosable(true);
 
         panel.setBackground(new java.awt.Color(0, 153, 153));
+        panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Source Code Pro Semibold", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Source Code Pro Semibold", 0, 18)); // NOI18N
         jLabel1.setText("Listado de Materias");
+        panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, -1, -1));
+        panel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 47, 509, 10));
 
         jLabel2.setText("Seleccione un alumno:");
+        panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 80, -1, -1));
 
         jcbAlumnosInsc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbAlumnosInscActionPerformed(evt);
             }
         });
+        panel.add(jcbAlumnosInsc, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 75, 252, -1));
 
-        jLabel3.setFont(new java.awt.Font("Source Code Pro Semibold", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Source Code Pro Semibold", 1, 24)); // NOI18N
         jLabel3.setText("Formulario de Inscripción");
+        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         jrbMateriasInsc.setText("Materias inscriptas");
         jrbMateriasInsc.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +94,7 @@ public class ManejoInscripcionesView extends javax.swing.JInternalFrame {
                 jrbMateriasInscActionPerformed(evt);
             }
         });
+        panel.add(jrbMateriasInsc, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 167, -1, -1));
 
         jrbMateriasNoInsc.setText("Materias no inscriptas");
         jrbMateriasNoInsc.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +102,7 @@ public class ManejoInscripcionesView extends javax.swing.JInternalFrame {
                 jrbMateriasNoInscActionPerformed(evt);
             }
         });
+        panel.add(jrbMateriasNoInsc, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 167, -1, -1));
 
         jtMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,12 +117,15 @@ public class ManejoInscripcionesView extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jtMaterias);
 
+        panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 201, 465, 154));
+
         jbInscribir.setText("Inscribir");
         jbInscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbInscribirActionPerformed(evt);
             }
         });
+        panel.add(jbInscribir, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, -1));
 
         jbDesinscribir.setText("Anular Inscripción");
         jbDesinscribir.addActionListener(new java.awt.event.ActionListener() {
@@ -122,76 +133,7 @@ public class ManejoInscripcionesView extends javax.swing.JInternalFrame {
                 jbDesinscribirActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
-        panel.setLayout(panelLayout);
-        panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                        .addComponent(jbInscribir)
-                        .addGap(82, 82, 82)
-                        .addComponent(jbDesinscribir)
-                        .addGap(116, 116, 116))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(39, 39, 39)
-                        .addComponent(jcbAlumnosInsc, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63))))
-            .addGroup(panelLayout.createSequentialGroup()
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelLayout.createSequentialGroup()
-                                .addGap(177, 177, 177)
-                                .addComponent(jLabel3))
-                            .addGroup(panelLayout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator1))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelLayout.createSequentialGroup()
-                                .addGap(74, 74, 74)
-                                .addComponent(jrbMateriasInsc)
-                                .addGap(79, 79, 79)
-                                .addComponent(jrbMateriasNoInsc))
-                            .addGroup(panelLayout.createSequentialGroup()
-                                .addGap(192, 192, 192)
-                                .addComponent(jLabel1)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(9, 9, 9)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbAlumnosInsc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jrbMateriasInsc)
-                    .addComponent(jrbMateriasNoInsc))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbInscribir)
-                    .addComponent(jbDesinscribir))
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
+        panel.add(jbDesinscribir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -201,7 +143,7 @@ public class ManejoInscripcionesView extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
         );
 
         pack();
