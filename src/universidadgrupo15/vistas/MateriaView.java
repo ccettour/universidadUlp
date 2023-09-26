@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package vistas;
+package universidadgrupo15.vistas;
 
 import javax.swing.JOptionPane;
 import universidadgrupo15.accesoaDatos.MateriaData;
@@ -49,7 +49,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
-        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 255));
         jPanel1.setForeground(new java.awt.Color(51, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -60,7 +60,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Código :");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Nombre :");
@@ -73,7 +73,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Estado :");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
-        jPanel1.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 90, -1));
+        jPanel1.add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 90, -1));
         jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 180, -1));
         jPanel1.add(anio, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 60, -1));
 
@@ -125,7 +125,7 @@ public class MateriaView extends javax.swing.JInternalFrame {
         });
         jPanel1.add(Modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vistas/libros1.png"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo15/vistas/libros1.png"))); // NOI18N
         jPanel1.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 270, 210));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,7 +143,10 @@ public class MateriaView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 MateriaData mat = new MateriaData();
     boolean activo = false;
+    
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        codigo.setEditable(false);
+        
         int id = Integer.parseInt(codigo.getText());
         Materia m=mat.buscarMateria(id);
         nombre.setText(m.getNombre());
@@ -156,9 +159,8 @@ MateriaData mat = new MateriaData();
         int año = Integer.parseInt(anio.getText());
         Materia mate = new Materia(nom, año, activo);
         mat.guardarMateria(mate);   
-        nombre.setText("");
-        anio.setText("");
-        codigo.setText("");
+        
+        limpiar();
     }//GEN-LAST:event_GuardarActionPerformed
 
     private void estadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoActionPerformed
@@ -166,10 +168,7 @@ MateriaData mat = new MateriaData();
     }//GEN-LAST:event_estadoActionPerformed
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
-        nombre.setText("");
-        anio.setText("");
-        codigo.setText("");
-        estado.setSelected(false);
+        limpiar();
     }//GEN-LAST:event_LimpiarActionPerformed
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
@@ -180,6 +179,8 @@ MateriaData mat = new MateriaData();
         } catch (java.lang.NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese código de identificacion de materia");
         }
+        
+        limpiar();
        
     }//GEN-LAST:event_EliminarActionPerformed
 
@@ -190,6 +191,8 @@ MateriaData mat = new MateriaData();
             int año = Integer.parseInt(anio.getText());
             Materia materia=new Materia(id, nom, año, activo);
             mat.modificarMateria(materia);
+            
+            limpiar();
         } catch (java.lang.NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Uno de los campos fue ingresado "
                     + "incorrectamente o se encuentra vacío"+"\nIntente de nuevo");
@@ -215,4 +218,13 @@ MateriaData mat = new MateriaData();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
+
+    private void limpiar(){
+        nombre.setText("");
+        anio.setText("");
+        codigo.setText("");
+        estado.setSelected(false);
+        
+        codigo.setEditable(true);
+    }
 }

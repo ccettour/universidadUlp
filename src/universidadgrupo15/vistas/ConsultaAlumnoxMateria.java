@@ -1,25 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
-package vistas;
-
+package universidadgrupo15.vistas;
 
 import java.util.*;
 
 import javax.swing.table.DefaultTableModel;
-import universidadgrupo15.accesoaDatos.MateriaData;
-import universidadgrupo15.accesoaDatos.InscripcionData;
-import universidadgrupo15.entidades.Alumno;
-import universidadgrupo15.entidades.Materia;
+import universidadgrupo15.accesoaDatos.*;
+import universidadgrupo15.entidades.*;
 
-/**
- *
- * @author User
- */
 public class ConsultaAlumnoxMateria extends javax.swing.JInternalFrame {
-private DefaultTableModel model=new DefaultTableModel();
-InscripcionData ind=new InscripcionData();
+
+    private DefaultTableModel model = new DefaultTableModel(){
+        @Override
+        public boolean isCellEditable(int fila, int columna){
+            return false;
+        }
+    };
+    
+    InscripcionData ind = new InscripcionData();
+
     /**
      * Creates new form ConsultaAlumnoxMateria
      */
@@ -27,36 +24,37 @@ InscripcionData ind=new InscripcionData();
         initComponents();
         cabecera();
         llenarCombo();
-       
+
     }
 
-    private void llenarCombo(){
-    MateriaData mt=new MateriaData();
-    List<Materia>lm=mt.listarMaterias();
-    
+    private void llenarCombo() {
+        MateriaData mt = new MateriaData();
+        List<Materia> lm = mt.listarMaterias();
+
         for (Materia mate : lm) {
             materiasListadas.addItem(mate);
         }
     }
-    
-    private void listar(){
-    limpiarLista(); 
-    Materia mate=(Materia)materiasListadas.getSelectedItem();
-     List<Alumno> listaN= ind.obtenerAlumnosXMateria(mate.getIdMateria());
-     
-            for (Alumno alum : listaN) {
-             model.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(), 
-                                alum.getApellido(), alum.getNombre()});
-            }
+
+    private void listar() {
+        limpiarLista();
+        Materia mate = (Materia) materiasListadas.getSelectedItem();
+        List<Alumno> listaN = ind.obtenerAlumnosXMateria(mate.getIdMateria());
+
+        for (Alumno alum : listaN) {
+            model.addRow(new Object[]{alum.getIdAlumno(), alum.getDni(),
+                alum.getApellido(), alum.getNombre()});
+        }
     }
-    
-    private void limpiarLista(){
-    int algo=tabla.getRowCount()- 1 ;
-    
-        for (;algo >= 0; algo--) {
+
+    private void limpiarLista() {
+        int algo = tabla.getRowCount() - 1;
+
+        for (; algo >= 0; algo--) {
             model.removeRow(algo);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -124,7 +122,7 @@ InscripcionData ind=new InscripcionData();
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,14 +146,13 @@ InscripcionData ind=new InscripcionData();
     private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 
-private void cabecera(){
-    model.addColumn("ID");
-    model.addColumn("DNI");
-    model.addColumn("Apellido");
-    model.addColumn("Nombre");
-    tabla.setModel(model);
-    
-    
-}
+    private void cabecera() {
+        model.addColumn("ID");
+        model.addColumn("DNI");
+        model.addColumn("Apellido");
+        model.addColumn("Nombre");
+        tabla.setModel(model);
+
+    }
 
 }
