@@ -54,6 +54,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         jTApellido = new javax.swing.JTextField();
         jBModificar = new javax.swing.JButton();
         jTFecha = new com.toedter.calendar.JDateChooser();
+        Limpiar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -94,15 +95,15 @@ public class AlumnoView extends javax.swing.JInternalFrame {
                 jBEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 87, -1));
+        jPanel1.add(jBEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 87, -1));
 
-        jBGuardar.setText("Guardar");
+        jBGuardar.setText("Crear");
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 87, -1));
+        jPanel1.add(jBGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 87, -1));
 
         jBBuscar.setText("Buscar");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,8 +128,16 @@ public class AlumnoView extends javax.swing.JInternalFrame {
                 jBModificarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 87, -1));
+        jPanel1.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 87, -1));
         jPanel1.add(jTFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 150, -1));
+
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo15/vistas/alumno1.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 140, 150));
@@ -186,6 +195,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
         jTDocumento.setEditable(false);
+        jTEstado.setEnabled(false);
         
         try{
             int dni=Integer.parseInt(jTDocumento.getText());
@@ -232,8 +242,13 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jBModificarActionPerformed
 
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
+        limpiarFormulario();
+    }//GEN-LAST:event_LimpiarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Limpiar;
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBGuardar;
@@ -262,7 +277,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         jTEstado.setSelected(false);
         
         jTDocumento.setEditable(true);
-    
+        jTEstado.setEnabled(true);
     
     }
 }

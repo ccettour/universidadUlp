@@ -45,6 +45,8 @@ public class ManipulacionNotasView extends javax.swing.JInternalFrame {
         jtfMatSelec = new javax.swing.JTextField();
         jcbNota = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setClosable(true);
 
@@ -113,6 +115,12 @@ public class ManipulacionNotasView extends javax.swing.JInternalFrame {
         jLabel4.setText("Carga de Notas");
         panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, -1, 40));
 
+        jLabel1.setText("Nombre materia");
+        panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+
+        jLabel3.setText("Nota");
+        panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -165,7 +173,9 @@ public class ManipulacionNotasView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
