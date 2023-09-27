@@ -37,14 +37,14 @@ public class MateriaData {
     }
 
     public void modificarMateria(Materia materia) {
-        String sql = "UPDATE materia SET nombre = ?,año = ?,estado = ? WHERE  IdMateria = ?";
+        String sql = "UPDATE materia SET nombre = ?,año = ? WHERE  IdMateria = ?";
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, materia.getNombre());
             ps.setInt(2, materia.getAño());
-            ps.setBoolean(3, materia.isEstado());
+            ps.setInt(3, materia.getIdMateria());
             int exito = ps.executeUpdate();
 
             if (exito == 1) {

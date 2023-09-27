@@ -146,6 +146,7 @@ MateriaData mat = new MateriaData();
     
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         codigo.setEditable(false);
+        estado.setEnabled(false);
         
         try{
             int id = Integer.parseInt(codigo.getText());
@@ -230,5 +231,6 @@ MateriaData mat = new MateriaData();
         estado.setSelected(false);
         
         codigo.setEditable(true);
+        estado.setEnabled(true);
     }
 }
