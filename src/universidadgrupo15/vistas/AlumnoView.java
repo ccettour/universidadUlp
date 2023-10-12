@@ -55,6 +55,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         jBModificar = new javax.swing.JButton();
         jTFecha = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
+        Limpiar = new javax.swing.JButton();
 
         setClosable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,7 +97,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         });
         jPanel1.add(jBEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 87, -1));
 
-        jBGuardar.setText("Guardar");
+        jBGuardar.setText("Crear");
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);
@@ -132,6 +133,14 @@ public class AlumnoView extends javax.swing.JInternalFrame {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo15/vistas/alumno1.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 140, 150));
+
+        Limpiar.setText("Limpiar");
+        Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LimpiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 390));
 
@@ -184,15 +193,19 @@ public class AlumnoView extends javax.swing.JInternalFrame {
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         // TODO add your handling code here:
-        
-        jTDocumento.setEditable(false);
-        
+        try {
+            jTDocumento.setEditable(false);
+        jTEstado.setEnabled(false);
         int dni=Integer.parseInt(jTDocumento.getText());
         Alumno a=alu.buscarAlumnoPorDNI(dni);
         jTApellido.setText(a.getApellido());
         jTNombre.setText(a.getNombre());
         jTFecha.setDate(Date.valueOf(a.getFechaNac()));
         jTEstado.setSelected(a.isEstado());
+        
+        } catch (NullPointerException npe ) {
+             System.out.println("Alumno no existe");
+        }
         
         
     }//GEN-LAST:event_jBBuscarActionPerformed
@@ -205,8 +218,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
         // TODO add your handling code here:
         try {
-            
-        
+     
         int dni = Integer.parseInt(jTDocumento.getText());
         String apellido = jTApellido.getText();
         String nombre = jTNombre.getText();
@@ -228,8 +240,14 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jBModificarActionPerformed
 
+    private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
+
+        limpiarFormulario();
+    }//GEN-LAST:event_LimpiarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Limpiar;
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBGuardar;
@@ -256,7 +274,7 @@ public class AlumnoView extends javax.swing.JInternalFrame {
         jTNombre.setText("");
         jTFecha.setDate(null);
         jTEstado.setSelected(false);
-        
+        jTEstado.setEnabled(true);
         jTDocumento.setEditable(true);
     
     

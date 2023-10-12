@@ -145,13 +145,18 @@ MateriaData mat = new MateriaData();
     boolean activo = false;
     
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        codigo.setEditable(false);
+           codigo.setEditable(false);
+        estado.setEnabled(false);
         
-        int id = Integer.parseInt(codigo.getText());
-        Materia m=mat.buscarMateria(id);
-        nombre.setText(m.getNombre());
-        anio.setText(String.valueOf(m.getAño()));
-        estado.setSelected(m.isEstado());
+        try{
+            int id = Integer.parseInt(codigo.getText());
+            Materia m=mat.buscarMateria(id);
+            nombre.setText(m.getNombre());
+            anio.setText(String.valueOf(m.getAño()));
+            estado.setSelected(m.isEstado());
+        } catch(NullPointerException npe){
+            System.out.println("La materia no existe");
+        }
     }//GEN-LAST:event_BuscarActionPerformed
 
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
@@ -226,5 +231,6 @@ MateriaData mat = new MateriaData();
         estado.setSelected(false);
         
         codigo.setEditable(true);
+        estado.setEnabled(true);
     }
 }

@@ -116,7 +116,7 @@ public class InscripcionData {
                 in.setIdInscripcion(rs.getInt("IdInscripto"));
                 in.setNota(rs.getInt("nota"));
                 in.setAlumno(aluData.buscarAlumno(rs.getInt("Idalumno")));
-                in.setMateria(mateData.buscarMateria(rs.getInt("Idmateria")));
+                in.setMateria(mateData.buscarMateriasTodas(rs.getInt("Idmateria")));
                 inscripciones.add(in);
             }
             ps.close();
