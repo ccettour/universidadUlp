@@ -1,23 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package universidadgrupo15.accesoaDatos;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import universidadgrupo15.entidades.Alumno;
 import universidadgrupo15.entidades.Inscripcion;
 import universidadgrupo15.entidades.Materia;
 
-/**
- *
- * @author User
- */
+
 public class InscripcionData {
      private Connection con = null;
      private MateriaData mateData=new MateriaData();
@@ -38,7 +29,7 @@ public class InscripcionData {
              ResultSet rs=ps.getGeneratedKeys();
              if (rs.next()) {
                  insc.setIdInscripcion(rs.getInt(1));
-                 JOptionPane.showMessageDialog(null, "InscripciÃ³n exitosa");
+                 JOptionPane.showMessageDialog(null, "Inscripción exitosa");
              }
              ps.close();
          } catch (SQLException ex) {
@@ -49,7 +40,7 @@ public class InscripcionData {
      
     public List<Inscripcion> obtenerInscripciones(){
     List <Inscripcion> inscripciones= new ArrayList<>();      
-    String sql="SELECT `IdInscripto`, `nota`, `Idalumno`, `Idmateria` FROM inscripcion";
+    String sql="SELECT `IdInscripto`, `nota`, `Idalumno`, `Idmateria` FROM inscripción";
          try {
              PreparedStatement ps=con.prepareStatement(sql);
              ResultSet rs=ps.executeQuery();
@@ -79,7 +70,7 @@ public class InscripcionData {
              in.setIdInscripcion(rs.getInt("IdInscripto"));
              in.setNota(rs.getInt("nota"));
              in.setAlumno(aluData.buscarAlumno(rs.getInt("Idalumno")));
-             in.setMateria(mateData.buscarMateria(rs.getInt("Idmateria")));
+             in.setMateria(mateData.buscarMateriasTodas(rs.getInt("Idmateria")));
              inscripciones.add(in);
              }
              ps.close();
@@ -153,7 +144,7 @@ public class InscripcionData {
              ps.close();
          
          } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, "No se puede conectar a la tabla inscripcion");
+             JOptionPane.showMessageDialog(null, "No se puede conectar a la tabla inscripción");
          }
     }
     

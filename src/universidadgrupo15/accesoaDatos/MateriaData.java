@@ -37,14 +37,14 @@ public class MateriaData {
     }
 
     public void modificarMateria(Materia materia) {
-        String sql = "UPDATE materia SET nombre = ?,año = ?,estado = ? WHERE  IdMateria = ?";
+        String sql = "UPDATE materia SET nombre = ?,año = ? WHERE  IdMateria = ?";
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, materia.getNombre());
             ps.setInt(2, materia.getAño());
-            ps.setBoolean(3, materia.isEstado());
+            ps.setInt(3, materia.getIdMateria());
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
@@ -78,6 +78,29 @@ public class MateriaData {
     
     public Materia buscarMateria(int id){
     String sql="SELECT nombre, año, estado FROM materia WHERE idMateria=? and estado=1";
+    Materia materia=null;
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs=ps.executeQuery();
+            if (rs.next()) {
+             materia=new Materia();
+             materia.setIdMateria(id);
+             materia.setNombre(rs.getString("nombre"));
+             materia.setAño(rs.getInt("año"));
+             materia.setEstado(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Materia no encontrada");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+          JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
+        }
+        return materia;
+    }
+    
+    public Materia buscarMateriasTodas(int id){
+    String sql="SELECT nombre, año, estado FROM materia WHERE idMateria=?";
     Materia materia=null;
         try {
             PreparedStatement ps=con.prepareStatement(sql);

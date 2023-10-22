@@ -3,12 +3,12 @@ package universidadgrupo15.accesoaDatos;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import universidadgrupo15.entidades.Alumno;
 
 public class AlumnoData {
+
+   
    private Connection con=null;
    
    public AlumnoData(){
